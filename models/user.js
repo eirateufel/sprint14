@@ -31,7 +31,8 @@ const userSchema = new mongoose.Schema({
 		required: true,
 		validate: {
 			validator() {
-				// const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/i;
+				// const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]
+				// {0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/i;
 				// return emailRegex.test(v);
 				return validator.isEmail('foo@bar.com');
 			},
@@ -41,8 +42,8 @@ const userSchema = new mongoose.Schema({
 	},
 	password: {
 		type: String,
-    required: true,
-    select: false,
+		required: true,
+		select: false,
 	},
 });
 
