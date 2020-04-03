@@ -1,6 +1,6 @@
 const cardsRouter = require('express').Router();
 const { getCards, createCard, removeCard } = require('../controllers/cards');
-const { doesCardExist, checkOwner } = require('../middlware/cards');
+const { doesCardExist, checkOwner } = require('../middlewares/cards');
 
 cardsRouter.get('/cards', getCards);
 
