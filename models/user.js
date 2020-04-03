@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
 	name: {
@@ -23,6 +24,23 @@ const userSchema = new mongoose.Schema({
 			},
 			message: (props) => `${props.value} is not a valid url!`,
 		},
+	},
+	email: {
+		type: String,
+		required: true,
+		validate: {
+			validator() {
+				// const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/i;
+				// return emailRegex.test(v);
+				return validator.isEmail('foo@bar.com');
+			},
+			message: (props) => `${props.value} is not a valid Email!`,
+		},
+		unique: true,
+	},
+	password: {
+		type: String,
+		required: true,
 	},
 });
 
