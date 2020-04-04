@@ -18,7 +18,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 	.then(() => console.log('Соединение с базой данных установлено'))
 	.catch((err) => console.log(err.message));
 
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
 app.post('/signin', login);
