@@ -30,11 +30,11 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		validate: {
-			validator() {
+			validator(v) {
 				// const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]
 				// {0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/i;
 				// return emailRegex.test(v);
-				return validator.isEmail('foo@bar.com');
+				return validator.isEmail(v);
 			},
 			message: (props) => `${props.value} is not a valid Email!`,
 		},
